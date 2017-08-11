@@ -1,0 +1,1 @@
+"use strict";var show=function(){console.log("i am a programming")};show();var a=1;console.log(a);

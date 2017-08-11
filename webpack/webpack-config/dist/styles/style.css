@@ -1,0 +1,21 @@
+.flex-div > span {
+  font-family: sans-serif;
+  background-color: yellow; }
+
+.flex-div > span {
+  text-align: center;
+  font-size: 26px;
+  color: green; }
+
+html, body {
+  padding: 0;
+  margin: 0 auto;
+  background: red; }
+  html .flex-div, body .flex-div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 300px;
+    height: 400px;
+    margin-left: 100px;
+    background-color: cyan; }

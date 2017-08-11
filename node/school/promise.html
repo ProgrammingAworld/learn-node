@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>promise</title>
+  <style media="screen">
+    .ball{
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+    }
+    .ball1{
+      background-color: red;
+    }
+    .ball2{
+      background-color: green;
+    }
+    .ball3{
+      background-color: cyan;
+    }
+  </style>
+  <script src="./node_modules/bluebird/js/browser/bluebird.min.js" charset="utf-8"></script>
+</head>
+<body>
+  <div class="ball ball1" style="margin-left:10px"></div>
+  <div class="ball ball2" style="margin-left:10px"></div>
+  <div class="ball ball3" style="margin-left:10px"></div>
+
+  <script type="text/javascript">
+    var ball1 = document.querySelector('.ball1');
+    var ball2 = document.querySelector('.ball2');
+    var ball3 = document.querySelector('.ball3');
+
+    var Promise = window.Promise;
+    function promiseAnimate(ball, distance) {
+      return new Promise(function(resolve, reject) {
+        function _animate(ball, distance, cb) {
+          setTimeout(function() {
+            var marginLeft = parseInt(ball1.style.marginLeft);
+            if (marginLeft === distance) {
+              return resolve;
+            }else{
+              if (marginLeft < distance) {
+                marginLeft ++;
+              }else{
+                marginLeft --;
+              }
+              ball1.style.marginLeft = marginLeft;
+              _animate();
+            }
+          }, 13)
+        }
+        _animate()
+    })
+  }
+    promiseAnimate(ball1, 100)
+      .then(function() {
+        return promiseAnimate(ball2, 200)
+      })
+      .then(function() {
+        return promiseAnimate(ball3, 300)
+      })
+      .then(function() {
+        return promiseAnimate(ball3, 50)
+      })
+      .then(function() {
+        return promiseAnimate(ball2, 50)
+      })
+      .then(function() {
+        return promiseAnimate(ball1, 50)
+      })
+  </script>
+
+
+</body>
+</html>

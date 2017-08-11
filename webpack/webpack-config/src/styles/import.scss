@@ -1,0 +1,8 @@
+@import './text.scss';
+.flex-div {
+  > span{
+    text-align: center;
+    font-size: 26px;
+    color: green;
+  }
+}

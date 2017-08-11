@@ -1,0 +1,25 @@
+ul,
+li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+html,
+body {
+  padding: 0;
+  margin: 0 auto;
+}
+html .flex-div,
+body .flex-div {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 200px;
+  height: 400px;
+  background-color: red;
+}

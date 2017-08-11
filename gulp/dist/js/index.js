@@ -1,0 +1,1 @@
+var show=function(){console.log("i am a programming")};show();
